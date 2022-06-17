@@ -9,10 +9,6 @@ namespace SirStudiosCase.UI
     {
         public static UIManager Instance { get; private set; }
 
-        #region Manager Objects
-        [SerializeField] private GameManager _gameManager;
-        #endregion
-
         #region Private Serialize Field
         [SerializeField] private GameObject[] _uiPanels;
         #endregion
@@ -27,7 +23,7 @@ namespace SirStudiosCase.UI
 
         public void GameUIPanelsSetActive()
         {
-            switch (_gameManager.state)
+            switch (GameManager.Instance.ReturnGameState())
             {
                 case GameManager.GameState.Start:
                     _uiPanels[GameStart].SetActive(true);
@@ -46,14 +42,14 @@ namespace SirStudiosCase.UI
         public void PlayButtonClicked()
         {
             // Oyun durumunu play yap ve ona göre panelleri düzenle
-            _gameManager.state = GameManager.GameState.Play;
+            GameManager.Instance.SetGameState(GameManager.GameState.Play);
             GameUIPanelsSetActive();
         }
 
         public void RestartButtonClicked()
         {
             // Oyun durumunu play yap, top oluþtur, scoru sýfýrla ve panelleri düzenle
-            _gameManager.state = GameManager.GameState.Play;
+            GameManager.Instance.SetGameState(GameManager.GameState.Play);
             BallSpawner.Instance.BallCreate();
             ScoreManager.Instance.ScoreReset();
             GameUIPanelsSetActive();
