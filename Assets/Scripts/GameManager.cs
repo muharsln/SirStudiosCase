@@ -19,5 +19,10 @@ namespace SirStudiosCase
         {
             state = gameState;
         }
+
+        public GameState ReturnGameState()
+        {
+            return state;
+        }
     }
 }
