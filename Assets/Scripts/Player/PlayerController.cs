@@ -13,7 +13,7 @@ namespace SirStudiosCase.Player
 
         #region Private Field
         private float _horizontal, _vertical;
-        private Vector3 _startPosition, _playerDirection, _playerNewPosition;
+        private Vector3 _startPosition, _playerDirection;
         private Quaternion _startRotation;
         #endregion
 
@@ -72,8 +72,7 @@ namespace SirStudiosCase.Player
         }
         private void PlayerMove()
         {
-            _playerNewPosition = new Vector3(_horizontal * _moveSpeed * Time.deltaTime, 0, _vertical * _moveSpeed * Time.deltaTime);
-            transform.position += _playerNewPosition;
+            transform.position += new Vector3(_horizontal * _moveSpeed * Time.deltaTime, 0, _vertical * _moveSpeed * Time.deltaTime);
 
         }
         private void PlayerRotate()
