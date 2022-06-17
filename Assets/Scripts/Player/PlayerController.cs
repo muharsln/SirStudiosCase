@@ -1,8 +1,6 @@
-using SirStudiosCase.Ball;
 using SirStudiosCase.Score;
 using SirStudiosCase.UI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace SirStudiosCase.Player
 {
